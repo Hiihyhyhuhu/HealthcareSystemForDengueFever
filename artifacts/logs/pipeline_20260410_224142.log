@@ -1,0 +1,120 @@
+2026-04-10 22:41:42  [INFO    ]  Loading dataset …
+2026-04-10 22:41:42  [INFO    ]    Dataset  : 16126 rows × 28 features
+2026-04-10 22:41:42  [INFO    ]    Classes  : [np.int64(0), np.int64(1), np.int64(2)] → [np.int64(0), np.int64(1), np.int64(2)]
+2026-04-10 22:41:42  [INFO    ]    Counts   : {0: 5414, 1: 5420, 2: 5292}
+2026-04-10 22:41:42  [INFO    ]    Split strategy: RANDOM (stratified)
+2026-04-10 22:41:42  [INFO    ]    Train: 9675  Val: 3225  Test: 3226
+2026-04-10 22:41:42  [INFO    ]    [Optuna] Tuning RandomForest (50 trials) …
+2026-04-10 22:42:46  [INFO    ]      Best RF: {'n_estimators': 223, 'max_depth': 14, 'min_samples_leaf': 10, 'max_features': 0.6469594071509868}  F1=0.6050
+2026-04-10 22:42:46  [INFO    ]    [Optuna] Tuning HistGradientBoosting (50 trials) …
+2026-04-10 22:44:20  [INFO    ]      Best HistGB: {'max_iter': 120, 'max_depth': 8, 'learning_rate': 0.029523559474401773, 'min_samples_leaf': 50, 'l2_regularization': 0.02913857598277493}  F1=0.6059
+2026-04-10 22:44:20  [INFO    ]  ============================================================
+2026-04-10 22:44:20  [INFO    ]    ABLATION STUDY  (Race + evidence scores)
+2026-04-10 22:44:20  [INFO    ]  ============================================================
+2026-04-10 22:44:21  [INFO    ]    full          n_feat= 28  macro F1 = 0.6001
+2026-04-10 22:44:22  [INFO    ]    no_race       n_feat= 27  macro F1 = 0.5881
+2026-04-10 22:44:23  [INFO    ]    no_evid       n_feat= 25  macro F1 = 0.6002
+2026-04-10 22:44:23  [INFO    ]    core_only     n_feat= 24  macro F1 = 0.5888
+2026-04-10 22:44:23  [INFO    ]  
+  Delta vs full-feature baseline:
+2026-04-10 22:44:23  [INFO    ]      full          ΔF1 = +0.0000
+2026-04-10 22:44:23  [INFO    ]      no_race       ΔF1 = -0.0120
+2026-04-10 22:44:23  [INFO    ]      no_evid       ΔF1 = +0.0002
+2026-04-10 22:44:23  [INFO    ]      core_only     ΔF1 = -0.0113
+2026-04-10 22:44:23  [INFO    ]    ✔  Evidence score impact = -0.000 (<5%). Safe to retain.
+2026-04-10 22:44:23  [INFO    ]    ⚠  Race contributes 0.012 F1. Investigate.
+2026-04-10 22:44:24  [INFO    ]  ============================================================
+2026-04-10 22:44:24  [INFO    ]    FORWARD PASS
+2026-04-10 22:44:24  [INFO    ]  ============================================================
+2026-04-10 22:44:24  [INFO    ]    Feature masks: 20/28 per model
+2026-04-10 22:44:24  [INFO    ]  
+[Phase 1] OOF meta-features …
+2026-04-10 22:44:24  [INFO    ]    ▸ RandomForest
+2026-04-10 22:44:30  [INFO    ]      CV Acc: 0.6025 ± 0.0065
+2026-04-10 22:44:30  [INFO    ]    ▸ GradientBoosting
+2026-04-10 22:44:34  [INFO    ]      CV Acc: 0.5968 ± 0.0056
+2026-04-10 22:44:34  [INFO    ]    ▸ HistGradientBoosting
+2026-04-10 22:44:37  [INFO    ]      CV Acc: 0.5957 ± 0.0088
+2026-04-10 22:44:37  [INFO    ]    ▸ CalibratedPolyLR
+2026-04-10 22:44:40  [INFO    ]      CV Acc: 0.5984 ± 0.0025
+2026-04-10 22:44:40  [INFO    ]    ▸ Bagging_DT
+2026-04-10 22:44:41  [INFO    ]      CV Acc: 0.6083 ± 0.0077
+2026-04-10 22:44:41  [INFO    ]    ▸ SVM_RBF
+2026-04-10 22:45:23  [INFO    ]      CV Acc: 0.5966 ± 0.0048
+2026-04-10 22:45:23  [INFO    ]    ▸ MLP
+2026-04-10 22:45:28  [INFO    ]      CV Acc: 0.6064 ± 0.0081
+2026-04-10 22:45:28  [INFO    ]    ▸ XGBoost
+2026-04-10 22:45:31  [INFO    ]      CV Acc: 0.5972 ± 0.0128
+2026-04-10 22:45:31  [INFO    ]    ▸ LightGBM
+2026-04-10 22:45:31  [INFO    ]      CV Acc: 0.6047 ± 0.0056
+2026-04-10 22:45:31  [INFO    ]    ▸ CatBoost
+2026-04-10 22:45:33  [INFO    ]      CV Acc: 0.5980 ± 0.0095
+2026-04-10 22:45:33  [INFO    ]  
+[Phase 2] Final base learners (stratified bootstrap) …
+2026-04-10 22:45:33  [INFO    ]    ▸ RandomForest
+2026-04-10 22:45:33  [INFO    ]    ▸ GradientBoosting
+2026-04-10 22:45:33  [INFO    ]    ▸ HistGradientBoosting
+2026-04-10 22:45:34  [INFO    ]    ▸ CalibratedPolyLR
+2026-04-10 22:45:35  [INFO    ]    ▸ Bagging_DT
+2026-04-10 22:45:35  [INFO    ]    ▸ SVM_RBF
+2026-04-10 22:45:40  [INFO    ]    ▸ MLP
+2026-04-10 22:45:43  [INFO    ]    ▸ XGBoost
+2026-04-10 22:45:43  [INFO    ]    ▸ LightGBM
+2026-04-10 22:45:43  [INFO    ]    ▸ CatBoost
+2026-04-10 22:45:44  [INFO    ]  
+[Phase 3] Training MLP meta-learner (64→32) …
+2026-04-10 22:45:44  [INFO    ]    Meta MLP  lr=0.0005  epochs=400  hidden=(64,32)
+2026-04-10 22:45:44  [INFO    ]    Train Acc: 0.6042  Val Acc: 0.6109
+2026-04-10 22:45:44  [INFO    ]  
+  ✔  Forward pass in 1.3 min
+2026-04-10 22:45:48  [INFO    ]    Isotonic calibration fitted (OvR).
+2026-04-10 22:45:48  [INFO    ]  
+[Evaluation] Val set (3225 samples)
+2026-04-10 22:45:51  [INFO    ]    accuracy              : 0.6174
+2026-04-10 22:45:51  [INFO    ]    f1_macro              : 0.6098
+2026-04-10 22:45:51  [INFO    ]    f1_weighted           : 0.6106
+2026-04-10 22:45:51  [INFO    ]    precision_macro       : 0.6132
+2026-04-10 22:45:51  [INFO    ]    recall_macro          : 0.6160
+2026-04-10 22:45:51  [INFO    ]    roc_auc               : 0.7942
+2026-04-10 22:45:51  [INFO    ]    log_loss              : 0.8304
+2026-04-10 22:45:51  [INFO    ]    mcc                   : 0.4288
+2026-04-10 22:45:51  [INFO    ]    cohen_kappa           : 0.4255
+2026-04-10 22:45:51  [INFO    ]  
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.62      0.63      0.63      1083
+           1       0.64      0.76      0.69      1084
+           2       0.58      0.45      0.51      1058
+
+    accuracy                           0.62      3225
+   macro avg       0.61      0.62      0.61      3225
+weighted avg       0.61      0.62      0.61      3225
+
+2026-04-10 22:45:51  [INFO    ]  
+[Evaluation] Test set (3226 samples)
+2026-04-10 22:45:53  [INFO    ]    accuracy              : 0.6277
+2026-04-10 22:45:53  [INFO    ]    f1_macro              : 0.6199
+2026-04-10 22:45:53  [INFO    ]    f1_weighted           : 0.6207
+2026-04-10 22:45:53  [INFO    ]    precision_macro       : 0.6231
+2026-04-10 22:45:53  [INFO    ]    recall_macro          : 0.6264
+2026-04-10 22:45:53  [INFO    ]    roc_auc               : 0.7996
+2026-04-10 22:45:53  [INFO    ]    log_loss              : 0.8780
+2026-04-10 22:45:53  [INFO    ]    mcc                   : 0.4445
+2026-04-10 22:45:53  [INFO    ]    cohen_kappa           : 0.4411
+2026-04-10 22:45:53  [INFO    ]  
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.63      0.64      0.63      1083
+           1       0.65      0.79      0.71      1084
+           2       0.59      0.46      0.52      1059
+
+    accuracy                           0.63      3226
+   macro avg       0.62      0.63      0.62      3226
+weighted avg       0.62      0.63      0.62      3226
+
+2026-04-10 22:45:57  [INFO    ]  [Feature Importance] Computing permutation importance …
+2026-04-10 22:45:57  [INFO    ]  
+[Permutation Importance] n_repeats=10 …
+2026-04-10 22:47:37  [INFO    ]    Model saved → C:\Users\Quoc Thai\Downloads\ML\HealthcareSystemForDengueFever\artifacts\model\stacking_improved_20260410_224142.pkl
