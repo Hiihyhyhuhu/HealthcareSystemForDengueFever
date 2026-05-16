@@ -1,0 +1,7 @@
+2026-04-10 22:51:02  [INFO    ]  Loading dataset …
+2026-04-10 22:51:02  [INFO    ]    Dataset  : 16126 rows × 28 features
+2026-04-10 22:51:02  [INFO    ]    Classes  : [np.int64(0), np.int64(1), np.int64(2)] → [np.int64(0), np.int64(1), np.int64(2)]
+2026-04-10 22:51:02  [INFO    ]    Counts   : {0: 5414, 1: 5420, 2: 5292}
+2026-04-10 22:51:02  [INFO    ]    Split strategy: RANDOM (stratified)
+2026-04-10 22:51:02  [INFO    ]    Train: 9675  Val: 3225  Test: 3226
+2026-04-10 22:51:02  [INFO    ]    [Optuna] Tuning RandomForest (50 trials) …

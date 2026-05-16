@@ -21,7 +21,7 @@ The system aims to assist parents in recognizing early symptoms, reduce hospital
 The platform provides an *online patient information form* for booking medical appointments
 
 Parents can:
-- Enter the child’s information
+- Enter the child's information
 - Describe symptoms
 - Select an appointment time
 

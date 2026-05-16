@@ -1,0 +1,22 @@
+2026-04-10 15:52:42  [INFO    ]  Loading dataset …
+2026-04-10 15:53:15  [INFO    ]  Loading dataset …
+2026-04-10 15:53:15  [INFO    ]  [Feature Engineering]
+2026-04-10 15:53:15  [INFO    ]    + composite_dengue_triad  (sum of ['Fever_dw', 'Retroorbital pain_dw', 'Petechiae_dw'])
+2026-04-10 15:53:15  [INFO    ]    + composite_chik_triad  (sum of ['Fever_dw', 'Arthralgia_dw', 'Arthritis_dw'])
+2026-04-10 15:53:15  [INFO    ]    + composite_gi_score  (sum of ['Nausea_dw', 'Vomiting_dw'])
+2026-04-10 15:53:15  [INFO    ]    + composite_musculo_score  (sum of ['Myalgia_dw', 'Arthralgia_dw', 'Arthritis_dw', 'Back Pain_dw'])
+2026-04-10 15:53:15  [INFO    ]    + dur_x_Fever_dw
+2026-04-10 15:53:15  [INFO    ]    + dur_x_bone_dw
+2026-04-10 15:53:15  [INFO    ]    + dur_x_Arthralgia_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Fever_dw_X_Retroorbital_pain_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Fever_dw_X_Petechiae_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Fever_dw_X_Arthralgia_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Arthralgia_dw_X_Arthritis_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Myalgia_dw_X_Back_Pain_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Fever_dw_X_Rash_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Nausea_dw_X_Vomiting_dw
+2026-04-10 15:53:15  [INFO    ]    + ix_Retroorbital_pain_dw_X_Headache_dw
+2026-04-10 15:53:15  [INFO    ]    Features: 28 → 43 (+15 engineered)
+2026-04-10 15:53:15  [INFO    ]    Dataset  : 16126 rows × 43 features
+2026-04-10 15:53:15  [INFO    ]    Classes  : [np.int64(0), np.int64(1), np.int64(2)] → [np.int64(0), np.int64(1), np.int64(2)]
+2026-04-10 15:53:15  [INFO    ]    Counts   : {0: 5414, 1: 5420, 2: 5292}
