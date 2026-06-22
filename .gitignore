@@ -1,3 +1,6 @@
 .github/
 .vscode/
 .env
+LLM/
+procedure/recife_fin.csv
+procedure/sinan_fin.csv
